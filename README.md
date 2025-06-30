@@ -1,2 +1,66 @@
 # Homelab-Blue-Red-Team-Training-
-A personal cybersecurity homelab built using Kali Linux, Metasploitable 2, Windows 10, and Windows 7 VMs for hands-on Blue Team and Red Team training. Includes real-world attack simulations, detection practices, and secure configuration walkthroughs.
+# Homelab (Blue & Red Team Training)
+
+This repository documents a hands-on cybersecurity homelab environment built to support both offensive (Red Team) and defensive (Blue Team) skill development. Using Kali Linux, Metasploitable 2, Windows 10 (hardened), and Windows 7 virtual machines in a local VMware environment, this lab simulates real-world attack scenarios, detection workflows, and system hardening tasks.
+
+The lab is designed to support career preparation for:
+- Security Operations Center (SOC) Analyst roles
+- Cybersecurity Analyst positions
+- Entry-level Cloud Security roles
+
+Cloud-based scenarios and AWS security modules are planned for future phases of this project.
+
+## Lab Architecture
+
+- All virtual machines are run locally using VMware Workstation
+- Host-only network is used to isolate and simulate internal threat activity
+- VMs include: Kali (attacker), Metasploitable 2 (vulnerable Linux), Windows 10 (defender), and Windows 7 (legacy target)
+
+## Lab Categories
+
+| Category             | Description                                                       |
+|----------------------|-------------------------------------------------------------------|
+| Reconnaissance       | Nmap scans, OS fingerprinting, and enumeration of services        |
+| Exploitation         | Remote exploits using Metasploit and manual payload execution     |
+| Web App Attacks      | DVWA + Burp Suite for XSS, SQLi, and input manipulation           |
+| Brute Force          | Hydra for SSH and HTTP credential testing                         |
+| Post-Exploitation    | Enumeration and privilege escalation in Windows and Linux targets |
+| Detection & Logging  | Analysis using Event Viewer, Sysmon, and simulated alerting       |
+| Hardening            | Secure configuration of Windows 10 and Linux baselines            |
+
+## Tools Used
+
+- Kali Linux: Nmap, Hydra, Burp Suite, Metasploit, Nikto
+- Windows 10/7: PowerShell, Event Viewer, Sysmon
+- Linux (Ubuntu/Metasploitable): Bash, UFW, Fail2Ban, Netcat
+- Splunk, Snort, pfSense (in planned expansions)
+- TryHackMe and Hack The Box for supplemental cloud labs (linked in repo)
+
+## Repository Structure
+
+Homelab-Blue-Red-Team-Training/
+├── README.md
+├── architecture/
+│ ├── vm-network-topology.png
+│ └── host-configurations.md
+├── reconnaissance/
+│ └── nmap-metasploitable.md
+├── exploitation/
+│ ├── vsftpd-backdoor.md
+│ └── smb-null-session.md
+├── brute-force/
+│ └── hydra-ssh.md
+├── web-vulnerabilities/
+│ ├── dvwa-xss.md
+│ └── dvwa-sqli.md
+├── post-exploitation/
+│ ├── privilege-escalation-checklist.md
+│ └── win-privesc-screenshots/
+├── detection/
+│ ├── windows10-event-logs.md
+│ └── sysmon-alerts.md
+├── hardening/
+│ ├── linux-hardening.md
+│ └── windows10-hardening.md
+└── scripts/
+└── powershell-enum.ps1
