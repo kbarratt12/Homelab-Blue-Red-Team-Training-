@@ -124,6 +124,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-07-01 13:39:
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2025-07-01 13:39:15
 ```
 Success!
+
 Run with uncompressed RockYou
 
 ```bash
