@@ -14,7 +14,7 @@ Cloud-based scenarios and AWS security modules are planned for future phases of 
 
 - All virtual machines are run locally using VMware Workstation
 - Host-only network is used to isolate and simulate internal threat activity
-- VMs include: Kali (attacker), Metasploitable 2 (vulnerable Linux), Windows 10 (defender), and Windows 7 (legacy target)
+- VMs include: Kali, Metasploitable 2, Windows 10, and Windows 7
 
 ## Lab Categories
 
@@ -33,34 +33,5 @@ Cloud-based scenarios and AWS security modules are planned for future phases of 
 - Kali Linux: Nmap, Hydra, Burp Suite, Metasploit, Nikto
 - Windows 10/7: PowerShell, Event Viewer, Sysmon
 - Linux (Ubuntu/Metasploitable): Bash, UFW, Fail2Ban, Netcat
-- Splunk, Snort, pfSense (in planned expansions)
-- TryHackMe and Hack The Box for supplemental cloud labs (linked in repo)
+- Splunk, Snort, pfSense 
 
-## Repository Structure
-
-Homelab-Blue-Red-Team-Training/
-├── README.md
-├── architecture/
-│ ├── vm-network-topology.png
-│ └── host-configurations.md
-├── reconnaissance/
-│ └── nmap-metasploitable.md
-├── exploitation/
-│ ├── vsftpd-backdoor.md
-│ └── smb-null-session.md
-├── brute-force/
-│ └── hydra-ssh.md
-├── web-vulnerabilities/
-│ ├── dvwa-xss.md
-│ └── dvwa-sqli.md
-├── post-exploitation/
-│ ├── privilege-escalation-checklist.md
-│ └── win-privesc-screenshots/
-├── detection/
-│ ├── windows10-event-logs.md
-│ └── sysmon-alerts.md
-├── hardening/
-│ ├── linux-hardening.md
-│ └── windows10-hardening.md
-└── scripts/
-└── powershell-enum.ps1
