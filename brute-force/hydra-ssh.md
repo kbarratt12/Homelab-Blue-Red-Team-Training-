@@ -22,7 +22,7 @@ Simulate a brute-force attack against an SSH service using Hydra to test passwor
 ## Lab 
 ### STEP 1
 
-Ensure Metasploitable 2 is powered on and reachable from Kali. Confirm SSH is enabled on the target:
+#### Ensure Metasploitable 2 is powered on and reachable from Kali. Confirm SSH is enabled on the target:
 
 ```bash
 nmap -sS -sV -O 192.168.56.102
